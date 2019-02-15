@@ -1,0 +1,2 @@
+[scoring]
+goals = ["decision_m1", "decision", "one_tiling_m1", "one_tiling"]
