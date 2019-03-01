@@ -1,6 +1,6 @@
-# Ricopertura di una griglia mxn tramite domini 1x2
+# Ricopertura di una griglia mxn tramite tessere del domino (barre 1x2)
 
-Ecco una ricopertura (tiling) di una griglia 8x8 (come una scacchiera):
+Ecco una ricopertura (tiling) di una griglia 8x8 (come la scacchiera) tramite barre 1x2:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/Pavage_domino.svg)
 
@@ -10,9 +10,17 @@ Quindi la griglia 8x8 ammette un tiling con tessere del domino.
 
 Assegnati due numeri naturali m ed n, il tuo programma deve stabilire se la griglia mxn ammetta anche essa un tiling con tessere del domino.
 
-Riesci a costruire tale tiling disponendo le tessere una ad una?
+Nei casi in cui la tua risposta sia affermativa, riesci ad esibire un tale tiling disponendo le tessere una ad una?
 
-goal 1: decidere, 1 <= m = 1, n <= 20
-goal 2: decidere,  1 <= m, n <= 20
-goal 3: costruire, 1 <= m = 1, n <= 20
-goal 4: costruire,  1 <= m, n <= 20
+Nei casi in cui la tua risposta sia negativa, vuoi esprimere una ragione per cui un tale tiling non possa esistere?
+
+
+goal 1: decidere, m = 1, n <= 100
+goal 2: decidere, 1 <= m, n <= 10
+goal 3: decidere, 1 <= m, n <= 100
+goal 4: decidere, 1 <= m, n <= 100.000
+goal 5: costruire il tiling, m = 1, n <= 100
+goal 6: costruire il tiling, 1 <= m, n <= 10
+goal 7: costruire il tiling,  1 <= m, n <= 100
+
+Non avendo pre-accordato un linguaggio comune per le ragioni di non-esistenza, quella parte, benchè preziosa, non è oggetto della valutazione automatica. Gli argomenti per la non'esistenza potranno essere invece disussi in classe.

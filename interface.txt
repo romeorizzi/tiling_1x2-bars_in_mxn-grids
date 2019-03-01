@@ -12,8 +12,11 @@ main {
     call res = is_tilable(m, n);
     write res;
     if res {
-       read m1, n1;
-       call compose_tiling(m1, n1);
+        read choice;
+        if choice {
+           read m1, n1;
+           call compose_tiling(m1, n1);
+        }
     }
 }    
 
