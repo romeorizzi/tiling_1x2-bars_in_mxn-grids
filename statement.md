@@ -2,9 +2,8 @@
 
 Ecco una ricopertura (tiling) di una griglia 8x8 (come la scacchiera) tramite barre 1x2:
 
-![](https://upload.wikimedia.org/wikipedia/commons/a/a4/Pavage_domino.svg)
-
-![optional caption text](figs/Pavage_domino.svg)
+<!--- ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/Pavage_domino.svg) -->
+![esempio di tiling](figs/Pavage_domino.svg)
 
 Quindi la griglia 8x8 ammette un tiling con tessere del domino.
 

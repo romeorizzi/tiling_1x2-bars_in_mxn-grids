@@ -3,8 +3,13 @@ import turingarena as ta
 H = 0   # horizontal placement of a tile
 V = 1   # vertical placement of a tile
 
+i_file_generated = 0
 def offer_a_tiling(m,n):
-    pass
+    global i_file_generated
+    i_file_generated += 1
+    tiling="ciao mamma"
+#    ta.send_file(tiling, filename=f"tiling_{i_file_generated}.txt")
+#    ta.evallib.evaluation.send_file_as_path(tiling, filename=f"tiling_{i_file_generated}.txt")
 
 def test_case(m,n):
     def turn_off_construction_goal_flags(m,n):
@@ -95,3 +100,5 @@ ta.goals.setdefault("construction", True)
 
 print(ta.goals)
 
+offer_a_tiling(4,7)
+offer_a_tiling(3,4)
