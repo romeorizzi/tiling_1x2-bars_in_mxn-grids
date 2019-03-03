@@ -21,28 +21,31 @@ def offer_a_tiling(m,n):
     # TO BE DONE: la composizione di questo file
     # aggiungere righe al file.
     # conviene crearsi descrizione opportuna del tiling in memoria, entro matrici, e poi renderizzare queste in stringa per mezzo di caratteri ASCII opportuni:
-    # va studuamo come realizzare tegole (di più caratteri), mi pare che la ratio 3/4 approssimi bene, tipo:
+    # va studiato anche lo schema con cui realizzare tegole (di più caratteri), mi pare che le ratio 3/5 e 3/4 approssimino bene, tipo:
+    #     XXXXX     XXXX     
+    #     X   X     X  X     sembrano entrambe abbastanza quadrati (non saprei dire quale di più)
+    #     XXXXX     XXXX
+    #
+    #     e quindi, se ad esempio scegli la 3/4:
+    #
     #     XXXXXXXX
-    #     X      X
+    #     X      X    per la (2,1) orizzontale
     #     XXXXXXXX
     #
     #     XXXX
     #     X  X
-    #     X  X
+    #     X  X        per la (1,2) verticale
     #     X  X
     #     X  X
     #     XXXX
     #
-    #  da progettare la forma della rappresentazione più opportuna del tiling in memoria per facilitare la traduzione visuale. Per l'idea astratta del tiling si può avvalersi invece della soluzione del problema nella cartella solutions (in futuro, con l'esperienza in classe, capiremo se non sia opportuno oscurarla).
+    #  da progettare anche la forma della rappresentazione più opportuna del tiling in memoria per facilitare la traduzione visuale. Per l'idea astratta del tiling si può avvalersi invece della soluzione del problema nella cartella solutions (in futuro, con l'esperienza in classe, capiremo se non sia opportuno oscurarla offrendo tiling meno regolari e più caotici. Anche per questo è bene separare le varie fasi che portano a renderizzare l'idea del tiling (l'oggetto combinatorico), entro un file di ASCIIART).
 """
     
     path = os.path.join(ta.get_temp_dir(), "output.txt")
     with open(path, "w") as f:
         print(tiling, file=f)    
         ta.evallib.evaluation.send_file(path, filename=f"tiling_{num_offered_tilings}.txt")
-
-
-        
 
 
 def test_case(m,n):
