@@ -1,15 +1,49 @@
 import turingarena as ta
+import os
 
 H = 0   # horizontal placement of a tile
 V = 1   # vertical placement of a tile
 
-i_file_generated = 0
+num_offered_tilings = 0
 def offer_a_tiling(m,n):
-    global i_file_generated
-    i_file_generated += 1
-    tiling="ciao mamma"
-#    ta.send_file(tiling, filename=f"tiling_{i_file_generated}.txt")
-#    ta.evallib.evaluation.send_file_as_path(tiling, filename=f"tiling_{i_file_generated}.txt")
+    global num_offered_tilings
+    num_offered_tilings += 1
+
+    # run with:
+    # turingarena-dev evaluate --store-files solutions/solution.py
+    # salva i file nella directory generated-files
+
+    print(f"Ho messo un tiling della griglia ({m},{n}) nel file  generated-files/tiling_{num_offered_tilings}.txt")
+    tiling=f"In questo file di testo (file ASCII) trovi un tiling della griglia ({m},{n}):"
+
+    tiling +="""
+    
+    # TO BE DONE: la composizione di questo file
+    # aggiungere righe al file.
+    # conviene crearsi descrizione opportuna del tiling in memoria, entro matrici, e poi renderizzare queste in stringa per mezzo di caratteri ASCII opportuni:
+    # va studuamo come realizzare tegole (di più caratteri), mi pare che la ratio 3/4 approssimi bene, tipo:
+    #     XXXXXXXX
+    #     X      X
+    #     XXXXXXXX
+    #
+    #     XXXX
+    #     X  X
+    #     X  X
+    #     X  X
+    #     X  X
+    #     XXXX
+    #
+    #  da progettare la forma della rappresentazione più opportuna del tiling in memoria per facilitare la traduzione visuale. Per l'idea astratta del tiling si può avvalersi invece della soluzione del problema nella cartella solutions (in futuro, con l'esperienza in classe, capiremo se non sia opportuno oscurarla).
+"""
+    
+    path = os.path.join(ta.get_temp_dir(), "output.txt")
+    with open(path, "w") as f:
+        print(tiling, file=f)    
+        ta.evallib.evaluation.send_file(path, filename=f"tiling_{num_offered_tilings}.txt")
+
+
+        
+
 
 def test_case(m,n):
     def turn_off_construction_goal_flags(m,n):
@@ -91,7 +125,7 @@ def test_case(m,n):
                 if 2*posed_tiles == m*n:
                     print(f"Complimenti! Hai riempito perfettamente la griglia ({m},{n}). Il tuo tiling è corretto.")
                 else:    
-                    print(f"NO: non hai ricoperto l'intera griglia. Di positivo: non sei uscito dalla griglia ({m},{n}) e non hai sovrapposto tessere. Nessun conflitto.")
+                    print(f"NO: non hai ricoperto l'intera griglia ({m},{n}). Hai collocato solo {posed_tiles} tessere. Di positivo: non sei uscito dalla griglia ({m},{n}) e non hai sovrapposto tessere. Nessun conflitto.")
                     turn_off_construction_goal_flags(m,n)
             else:
                 turn_off_construction_goal_flags(m,n)
@@ -123,3 +157,4 @@ print(ta.goals)
 
 offer_a_tiling(4,7)
 offer_a_tiling(3,4)
+
