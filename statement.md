@@ -23,3 +23,5 @@ goal 6: costruire il tiling, 1 <= m, n <= 10
 goal 7: costruire il tiling,  1 <= m, n <= 100
 
 Non avendo pre-accordato un linguaggio comune per le ragioni di non-esistenza, quella parte, benchè preziosa, non è oggetto della valutazione automatica. Gli argomenti per la non'esistenza potranno essere invece disussi in classe.
+
+Per collocare le tessere nella griglia, la procedura `compose_tiling` che sei chiamato ad implementare si avvale della callback `place_tile(row,col,dir)` che colloca una tessera in orizzontale se `dir = H` e in vertiale  se `dir = H`. I primi due parametri indicano la posizione dell'angolo in alto a sinistra della tessera entro la griglia. Le righe della griglia mxn sono numerate da 1 ad m; le colonne da 1 a n. 
