@@ -13,7 +13,7 @@ def offer_a_tiling(m,n):
     # turingarena-dev evaluate --store-files solutions/solution.py
     # salva i file nella directory generated-files
 
-    print(f"Ho messo un tiling della griglia ({m},{n}) nel file  generated-files/tiling_{num_offered_tilings}.txt")
+    print(f"In caso ti serva un aiuto, o dove tu sia incredulo esso esista, ti ho messo un tiling della griglia ({m},{n}) nel file  generated-files/tiling_{num_offered_tilings}.txt")
     tiling=f"In questo file di testo (file ASCII) trovi un tiling della griglia ({m},{n}):"
 
     tiling +="""
@@ -86,7 +86,7 @@ def test_case(m,n):
             return
 
         # BEGIN: testing of the procedure constructing the tiling
-        print(f"Ok, you claim the tiling exists, and ({m},{n}) <= (100,100). Let's hence see if you can actually construct the tiling.")
+        print(f"Ok, since we agree the tiling exists, and an ({m},{n})-board is still reasonably small, let's find out whether your code can actually construct the tiling and measure its efficiency.")
         construction_ok = True
         posed_tiles = 0
         covered = [ [False for _ in range(n+1) ] for _ in range(m+1) ]
@@ -128,10 +128,12 @@ def test_case(m,n):
                     print(f"Complimenti! Hai riempito perfettamente la griglia ({m},{n}). Il tuo tiling è corretto.")
                 else:    
                     print(f"NO: non hai ricoperto l'intera griglia ({m},{n}). Hai collocato solo {posed_tiles} tessere. Di positivo: non sei uscito dalla griglia ({m},{n}) e non hai sovrapposto tessere. Nessun conflitto.")
+                    offer_a_tiling(m,n)
+                    print(f"Hai fornito un packing corretto ma esso non è un tiling perfetto quindi non mi è ovvio esso sia ottimo. Per ora mi hai convinto che esista un packing di almeno {posed_tiles}, ossia mi hai dato un lower-bound sul valore ottimo del packing. In esercizi successivi di questo percorso apprenderai come fornire argomenti a supporto dell'ottimalità dei tuoi packing e andiamo a vedere quanto è buono l'upper-bound che sai fornirmi. Tuttavia in questo caso (m={m} e n={n}) esiste un tiling ottimo. Quindi prendiamo per NON buono il packing che hai qui prodotto.")
                     turn_off_construction_goal_flags(m,n)
-                print("[vuoi vedere come la tua procedura ha collocato le piastrelle? File esterni da scaricare: visualizzazione statica in grafica vettoriale e ASCII solo log delle piastelle da usare per debug e visualizzabile in un'applet]")
+                print("[vuoi vedere come la tua procedura ha collocato le piastrelle? In questo punto potremmo mettere il tiling prodotto dalla tua procedura dentro in file esterni che il problem-solver possa scaricarsi: sarebbe bella una visualizzazione statica in grafica vettoriale, con le piastrelle numerate nell'ordine di posatura, ma anche un ASCII con solo il log della sequenza delle chiamate a pose_tile da usare per eventuale debug, e comunque visualizzabile in un'applet. Come vedi, ci sono mille modi in cui puoi contribuire a rendere TA piu ricco ed interattivo. Se anche tu come noi pensi 'We don't need no education' non esistare: richiedi progetti e 'brake on through to the other side'.]")
             else:
-                print("mostra il packing fino all'errore: ", lista_tiles)
+                print("mostra il tiling fino all'errore: ", lista_tiles)
                 turn_off_construction_goal_flags(m,n)
 
                 
@@ -158,7 +160,4 @@ ta.goals.setdefault("construction_small", True)
 ta.goals.setdefault("construction", True)
 
 print(ta.goals)
-
-offer_a_tiling(4,7)
-offer_a_tiling(3,4)
 
